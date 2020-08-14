@@ -23,19 +23,13 @@ def shiftList(shiftCount, listLength, listToShift):
 matrixA = [[1,2], [3,4], [5,6]]
 matrixB = [[7,8], [9,10], [11,12]]
 
-def setupMatrix(m):
-  matrix = []
-  for i in range(m):
-    matrix.append([])
-
-  return matrix
-
 def sumMatrices(ma, mb):
   rows = len(ma)
   cols = len(ma[0])
-  res = setupMatrix(rows)
+  res = []
 
   for i in range(rows):
+    res.append([])
     for j in range(cols):
       res[i].append(ma[i][j] + mb[i][j])
 
