@@ -1,5 +1,4 @@
 ######### 1. #########
-
 # a)
 testList = [1,2,3,4,5,6,7,8,9]
 n = len(testList)
@@ -16,7 +15,6 @@ def shiftList(shiftCount, listLength, listToShift):
 
   print(newList)
 
-# Uncomment the following to test
 # shiftList(-3,n,testList)
 
 # b)
@@ -35,4 +33,29 @@ def sumMatrices(ma, mb):
 
   print(res)
 
-sumMatrices(matrixA, matrixB)
+# sumMatrices(matrixA, matrixB)
+
+######### 3. #########
+
+listA = ['uno', 2, 'tres', 8]
+listB = ['lol', 8 , 'cinco', 15]
+
+def intersection(listA, listB):
+  hasValueInCommon = False
+
+  if len(listA) - len(listB) > 0:
+    listToIterate = listB
+    listToCompareWith = listA
+  else:
+    listToIterate = listA
+    listToCompareWith = listB
+
+  i = 0
+  while i < len(listToIterate) and hasValueInCommon == False:
+    if listToIterate[i] in listToCompareWith:
+      hasValueInCommon = True
+    i += 1
+
+  print(hasValueInCommon)
+
+# intersection(listA, listB)
