@@ -1,3 +1,5 @@
+import random
+
 ######### 1. #########
 # a)
 testList = [1,2,3,4,5,6,7,8,9]
@@ -59,3 +61,36 @@ def intersection(listA, listB):
   print(hasValueInCommon)
 
 # intersection(listA, listB)
+
+######### 5. #########
+def getObservationsCount(observedValuesList):
+  valuesDictionary = {
+    'One': 0,
+    'Two': 0,
+    'Three': 0,
+    'Four': 0,
+    'Five': 0,
+    'Six': 0
+  }
+
+  i = 0
+  for item in valuesDictionary:
+    valueCount = observedValuesList.count(i+1)
+    valuesDictionary[item] = valueCount
+    i += 1
+
+  return valuesDictionary
+
+def rollDice(timesToRoll):
+  observedValues = []
+
+  for i in range(timesToRoll):
+    diceOneValue = random.randrange(1, 7)
+    diceTwoValue = random.randrange(1, 7)
+    observedValues.append(diceOneValue)
+    observedValues.append(diceTwoValue)
+
+  countDictionary = getObservationsCount(observedValues)
+  print(countDictionary)
+
+# rollDice(8)
