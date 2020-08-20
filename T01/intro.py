@@ -38,6 +38,7 @@ def sumMatrices(ma, mb):
 # sumMatrices(matrixA, matrixB)
 
 #----------ejercicio 2---------------
+print('--------------------------ejercicio2------------------\n---------------------------------------------------')
 
 
 def tuplaPares(tuplaT): #función que  recibe una tupla
@@ -49,6 +50,12 @@ def tuplaPares(tuplaT): #función que  recibe una tupla
             temp.insert(indice,tuplaT[indice-1]) 
             a=tuple(temp) # se convierte la lista a una tupla
     return a #regresa tupla de los elementos pares
+
+tuplaejemplo=('yo','mi','prueba','tupla','de','ejemplo','eres')
+print('la tupla ingresada fue: ')
+print(tuplaejemplo)
+print('la tupla resultado es:')
+print(tuplaPares(tuplaejemplo))
 
 ######### 3. #########
 
@@ -74,7 +81,9 @@ def intersection(listA, listB):
   print(hasValueInCommon)
 
 # intersection(listA, listB)
+
 #---------ejercicio 4------------------
+print('--------------------------ejercicio4------------------\n---------------------------------------------------')
 
 
 def cuentaPalabras(cadena): #función que recibe una cadena
@@ -90,6 +99,13 @@ def cuentaPalabras(cadena): #función que recibe una cadena
         x=x+1
     return dict(set(extra))#se convierte en diccionario los elementos de la li
 #utilizando la función set para quitar elementos repetidos
+
+oracion='hola hola hola como como estas estas materia materia bases de datos'
+print('la oracion ingresado fue :')
+print(oracion)
+print('las palabras son con su frecuencia son :')
+print(cuentaPalabras(oracion))
+
 
 ######### 5. #########
 def getObservationsCount(observedValuesList):
@@ -125,7 +141,7 @@ def rollDice(timesToRoll):
 # rollDice(8)
 
 #------------ejercicio 6---------------
-
+print('--------------------------ejercicio6------------------\n---------------------------------------------------')
 
 def multMatrices(a,b): #se reciben 2 listas con listas de cada vector(xyz)
     r1=[]  # se crean listas auxiliares para almacenar los resultados
@@ -173,6 +189,82 @@ def multMatrices(a,b): #se reciben 2 listas con listas de cada vector(xyz)
     
     
     return (r2)
+
+lista1=[[9,3,17],
+        [21,2,96],
+        [3,6,97]]
+
+lista2=[[4,-3,12],
+        [1,1,5],
+        [1,3,2]]
+
+print('las matrices ingresadas fueron: ')
+print(lista1,lista2)
+print('el resultado de la multiplicación de matrices es ')
+print(multMatrices(lista1, lista2))
+
+
+#----------------ejercicio 8----------------------------
+
+print('--------------------------ejercicio8------------------\n---------------------------------------------------')
+flec= open('text.txt','r') # abrimos documento de texto y lo leemos 
+res='' # variable auxiliar de texto para concatenar cada renglon del archivo en una sola cadena
+for linea in flec:
+    res=res+linea #se concatena cada reglon en la variable de apoyo
     
+flec.close()
+print('total de palabras diferentes en el archivo text.txt')
+print(len(cuentaPalabras(res))) # se llama la función del ejercicio 4 donde la cadena se convierte en una lista y despues a un diccionario quitando elementos repetidos de este 
+print('número de veces que  cada palabra se repite es')
+# sección adicional para imprimir los elementos del diccionario de forma ordenada de mayor recurrencia a menor 
+import operator
+palabras_sort = sorted(cuentaPalabras(res).items(), key=operator.itemgetter(1), reverse=True)
+for name in enumerate(palabras_sort):
+    print(name[1][0], '=', cuentaPalabras(res)[name[1][0]])
+    
+    
+    
+    
+    
+    
+#--------------ejercicio 10---------------------------------
+print('--------------------------ejercicio10------------------\n---------------------------------------------------')
+#función para validar que las cadenas ingresadas por el usuario sean menores a 7 caracteres
+def lee_entradas():
+    while True:
+        valor = input("Ingrese una cadena de 7 caracteres ")
+        if(len(valor)<7):
+            return valor
         
+        print ("ATENCIÓN: Debe ingresar una cadena menor a 7 caracteres.")
+            
+print('Ingresa la palabra inicial')
+palabraInicial = lee_entradas()
+print('Ingresa la palabra final')
+palabraFinal = lee_entradas()
+print('la palabra inicial es '+palabraInicial+' La palabra final es '+palabraFinal)
+
+# se abre documento de lectura y escritura
+flec= open('Datos.txt','r') 
+fesc= open('Resultados.txt','w')
+
+# se escribe información en documento de resultados
+fesc.write('Las palabras que estan dentro del rango de claves de '+palabraInicial+' y '+palabraFinal+' son: \n') 
+
+# for para recorrer el archivo de texto por cada renglon cmparando las claves de 7 digitos
+for linea in flec:
+    palabraComparar=linea
+    palabraAux= palabraComparar[0:7] #se toman los primeros 7 caracteres de cada renglon en una variable temporal para la clave de comparacion
+    if palabraInicial<palabraFinal:#se valida que la primera palabra sea mas pequeña que la segunda
+        if palabraAux>=palabraInicial and palabraAux<=palabraFinal and len(palabraComparar)<40:
+            fesc.write(palabraComparar)# se escribe en el documento de resultados el renglon que cumpla las condiciones de menor a 40 , y este dentro del rango
+        else:
+            print(palabraAux+'no esta en rango')
+    else :
+        print('la segunda palabra es mas pequeña')
     
+flec.close()
+fesc.close() 
+# se cierran documentos de lectura y escritura
+
+ 
