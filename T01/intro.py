@@ -1,7 +1,8 @@
 import random
 import re
 
-######### 1. #########
+#----------ejercicio 1---------------
+print('--------------------------ejercicio1------------------\n---------------------------------------------------')
 # a)
 testList = [1,2,3,4,5,6,7,8,9]
 n = len(testList)
@@ -58,7 +59,8 @@ print(tuplaejemplo)
 print('la tupla resultado es:')
 print(tuplaPares(tuplaejemplo))
 
-######### 3. #########
+#----------ejercicio 3---------------
+print('--------------------------ejercicio3------------------\n---------------------------------------------------')
 
 listA = ['uno', 2, 'tres', 8]
 listB = ['lol', 8 , 'cinco', 15]
@@ -108,7 +110,8 @@ print('las palabras son con su frecuencia son :')
 print(cuentaPalabras(oracion))
 
 
-######### 5. #########
+#----------ejercicio 5---------------
+print('--------------------------ejercicio5------------------\n---------------------------------------------------')
 def getObservationsCount(observedValuesList):
   valuesDictionary = {
     'One': 0,
@@ -140,31 +143,6 @@ def rollDice(timesToRoll):
   print(countDictionary)
 
 # rollDice(8)
-
-str1 = "azcbobobegghakl"
-str2 = "bob"
-
-######### 7. #########
-def stringContained(baseString, substring):
-  count = 0
-  containsAt = baseString.find(substring)
-  
-  if containsAt > -1:
-    count += 1
-    iterateCount = len(baseString) - containsAt
-    searchBegin = containsAt + 1
-    searchEnd = searchBegin + len(substring)
-
-    for i in range(iterateCount):
-      containsAt = baseString.find(substring, searchBegin, searchEnd)
-      searchBegin += 1
-      searchEnd += 1
-      if containsAt > -1:
-        count += 1
-
-  print('Cantidad de veces que',substring,'ocurre es:', count)
-
-# stringContained(str1, str2)
 
 print('--------------------------ejercicio6------------------\n---------------------------------------------------')
 
@@ -228,6 +206,32 @@ print(lista1,lista2)
 print('el resultado de la multiplicación de matrices es ')
 print(multMatrices(lista1, lista2))
 
+str1 = "azcbobobegghakl"
+str2 = "bob"
+
+#----------ejercicio 7---------------
+print('--------------------------ejercicio7------------------\n---------------------------------------------------')
+def stringContained(baseString, substring):
+  count = 0
+  containsAt = baseString.find(substring)
+  
+  if containsAt > -1:
+    count += 1
+    iterateCount = len(baseString) - containsAt
+    searchBegin = containsAt + 1
+    searchEnd = searchBegin + len(substring)
+
+    for i in range(iterateCount):
+      containsAt = baseString.find(substring, searchBegin, searchEnd)
+      searchBegin += 1
+      searchEnd += 1
+      if containsAt > -1:
+        count += 1
+
+  print('Cantidad de veces que',substring,'ocurre es:', count)
+
+# stringContained(str1, str2)
+
 
 #----------------ejercicio 8----------------------------
 
@@ -246,11 +250,6 @@ import operator
 palabras_sort = sorted(cuentaPalabras(res).items(), key=operator.itemgetter(1), reverse=True)
 for name in enumerate(palabras_sort):
     print(name[1][0], '=', cuentaPalabras(res)[name[1][0]])
-    
-    
-    
-    
-    
     
 #--------------ejercicio 10---------------------------------
 print('--------------------------ejercicio10------------------\n---------------------------------------------------')
