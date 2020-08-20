@@ -1,4 +1,5 @@
 import random
+import re
 
 ######### 1. #########
 # a)
@@ -140,7 +141,31 @@ def rollDice(timesToRoll):
 
 # rollDice(8)
 
-#------------ejercicio 6---------------
+str1 = "azcbobobegghakl"
+str2 = "bob"
+
+######### 7. #########
+def stringContained(baseString, substring):
+  count = 0
+  containsAt = baseString.find(substring)
+  
+  if containsAt > -1:
+    count += 1
+    iterateCount = len(baseString) - containsAt
+    searchBegin = containsAt + 1
+    searchEnd = searchBegin + len(substring)
+
+    for i in range(iterateCount):
+      containsAt = baseString.find(substring, searchBegin, searchEnd)
+      searchBegin += 1
+      searchEnd += 1
+      if containsAt > -1:
+        count += 1
+
+  print('Cantidad de veces que',substring,'ocurre es:', count)
+
+# stringContained(str1, str2)
+
 print('--------------------------ejercicio6------------------\n---------------------------------------------------')
 
 def multMatrices(a,b): #se reciben 2 listas con listas de cada vector(xyz)
@@ -266,5 +291,3 @@ for linea in flec:
 flec.close()
 fesc.close() 
 # se cierran documentos de lectura y escritura
-
- 
