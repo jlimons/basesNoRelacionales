@@ -1,0 +1,14 @@
+{
+  "name": "t03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ej1.js",
+  "scripts": {
+    "test": "node ej1.js"
+  },
+  "author": "jlimons",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.6.2"
+  }
+}
