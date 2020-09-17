@@ -152,7 +152,24 @@ async function run() {
     // 
     // e. La cantidad total de productos (tipos, no unidades) que se vendieron en un día concreto. 
     //
-
+    const cuantosProd =await salesCollection.distinct({fecha: new Date('2020-09-05')},
+    {projection: { productos: 1, _id: 0 } }
+    ).toArray();
+    
+    
+    console.log(cuantosProd.length());
+    
+    //
+    // f. El nombre de los productos que se vendieron la semana pasada (día inicial: lunes). 
+    //
+    const nombreProd =await salesCollection.find({ fecha: {
+        $gte: new Date("2020-09-07"),
+        $lt: new Date("2020-09-13")
+      }},{projection: { productos: 1, _id: 0 }}).toArray();
+   
+     console.log(nombreProd);
+    
+   
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
